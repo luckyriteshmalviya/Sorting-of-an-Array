@@ -47,20 +47,22 @@
  */
 
 
-let arr = [0, 2, 1, 2, 0]
+let arr = [0,2,1,2,0]     
 let arr_01 = [], arr_02 = [], arr_03 = [];
 
-for (let i=0; i<arr.length; i++){
-    if (arr[i]==0){
-        arr_01 = arr_01 + [arr[i]];
+ for (let i=0; i<arr.length; i++){
+    if (arr[i]===0){
+        arr_01.push(arr[i]);
     }
-    else if (arr[i]==1){
-        arr_02 = arr_02 + [arr[i]];
+    else if (arr[i]===1){
+        arr_02.push(arr[i]);
     }
-    else if (arr[i]==2){
-        arr_03 = arr_03 + [arr[i]];
+    else{
+        arr_03.push(arr[i]);
     }
 }
-var res_01 = (arr_01.concat(arr_02)).concat(arr_03);
-var res = [...res_01];
-console.log(res);
+var res_01 = [...arr_01, ...arr_02, ...arr_03];
+for (let j=0; j<arr.length; j++){
+    arr[j]=res_01[j];
+}
+console.log(arr);
